@@ -1,0 +1,23 @@
+.page {
+  margin-top: 120px;
+  border-radius: 3rem 3rem 3rem 3rem;
+  align-items: center;
+}
+.CardBody h3 {
+  font-size: 30px;
+  margin-top: 0.2px;
+  gap: 10px;
+}
+ .CardBody h5 {
+  margin-top: 30px;
+}
+span {
+  margin-top: 20px;
+}
+.div p {
+  margin-top: 5px;
+}
+
+.col button {
+  margin-top: 10px; 
+}

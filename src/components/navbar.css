@@ -1,0 +1,119 @@
+nav {
+  height: 5rem;
+  width: 100vw;
+  background: var(--color-primary);
+  display: grid;
+  place-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99;
+}
+.nav__toggle-btn {
+  display: none;
+}
+.nav_container {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+.logo {
+  width: 7rem;
+  /* display: block; */
+}
+.nav_link {
+  display: flex;
+  gap: 3.5rem;
+  align-items: center;
+}
+.nav_link a {
+  transition: var(--transition);
+}
+.nav_link a:hover {
+  color: var(--color-primary-variant);
+}
+
+.active-nav {
+  position: relative;
+}
+/* MEDIA QUERIES (MEDIUM AND SMALL SCREENS) */
+@media screen and (max-width: 1024px) {
+  .nav__toggle-btn {
+    display: inline-block;
+    background: transparent;
+    font-size: 1.8rem;
+    cursor: pointer;
+  }
+  .nav__toggle-btn svg {
+    color: var(--color-gray-100);
+  }
+  .nav_links {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    flex-direction: column;
+    gap: 0;
+    perspective: 400px;
+    transform: scaleX(0); /* Start hidden */
+    transform-origin: right;
+    transition: transform 0.3s ease;
+  }
+  .active-nav,
+  .active-nav::after {
+    display: none;
+  }
+  .show_nav .nav_link {
+    transform: scaleX(1); /* Show the navigation links */
+  }
+  .nav_link li {
+    height: 4rem;
+    width: 100%;
+    box-shadow: -2rem 2rem 5rem rgba(0, 0, 0, 0.5);
+    animation: navAnimation 600ms ease forwards;
+    transform: rotateX(90deg);
+    opacity: 0;
+    transform-origin: top;
+  }
+  .nav_link li a {
+    background-color: var(--color-primary);
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 1rem 5rem 1rem 3rem;
+    color: var(--color-gray-100); 
+  }
+  .nav_link li:nth-child(2) {
+    animation-delay: 200ms;
+  }
+  .nav_link li:nth-child(3) {
+    animation-delay: 400ms;
+  }
+  .nav_link li:nth-child(4) {
+    animation-delay: 600ms;
+  }
+  
+  @keyframes navAnimation {
+    to {
+      transform: rotate(0);
+      opacity: 1;
+    }
+  }
+  .nav_link li a {
+    background-color: var(--color-primary);
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 1rem 5rem 1rem 3rem;
+    color: var(--color-gray-100); 
+  }
+  .show_nav {
+    display: flex;
+  }
+  .hide_nav {
+    display: none;
+  }
+}
